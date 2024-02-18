@@ -6,9 +6,15 @@ import {
 } from 'react-native'
 // import { Feather } from '@expo/vector-icons'
 
+import { router } from 'expo-router'
+
 import Header from '../../components/header'
 import CircleButton from '../../components/CircleButton'
 import Icon from '../../components/Icon'
+
+const handlePress = (): void => {
+  router.back()
+}
 
 const Create = (): JSX.Element => {
   return (
@@ -17,7 +23,7 @@ const Create = (): JSX.Element => {
       <View style={styles.inputContainer}>
         <TextInput multiline style={styles.input} value='' />
       </View>
-      <CircleButton>
+      <CircleButton onPress={handlePress}>
         <Icon name='check' size={40} color='#ffffff' />
       </CircleButton>
     </KeyboardAvoidingView>
