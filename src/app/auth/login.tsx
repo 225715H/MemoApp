@@ -7,23 +7,40 @@ import {
 } from 'react-native'
 
 import { Link, router } from 'expo-router'
+import { useState } from 'react'
 
-import Header from '../../components/header'
 import Button from '../../components/button'
 
 const handlePress = (): void => {
   // ログイン
-  router.push('/memo/list')
+  router.replace('/memo/list')
 }
 
-const Signup = (): JSX.Element => {
+const Login = (): JSX.Element => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   return (
     <View style={styles.container}>
-      <Header />
       <View style={styles.inner}>
           <Text style={styles.title}>Login</Text>
-          <TextInput style={styles.input} value='Email Address'/>
-          <TextInput style={styles.input} value='Password'/>
+          <TextInput
+           style={styles.input}
+           value={email}
+           onChangeText={(text) => { setEmail(text) }}
+           autoCapitalize='none'
+           placeholder='Email Address'
+           textContentType='emailAddress'
+           keyboardType='email-address'
+           />
+          <TextInput
+          style={styles.input}
+          value={password}
+          onChangeText={(text) => { setPassword(text) }}
+          autoCapitalize='none'
+          secureTextEntry
+          placeholder='Password'
+          textContentType='password'
+          />
         <Button label='Submit' onPress={handlePress} />
         <View style={styles.footer}>
           <Text style={styles.footerText}>Not registered?</Text>
@@ -78,4 +95,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Signup
+export default Login

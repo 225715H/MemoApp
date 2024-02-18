@@ -3,7 +3,6 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native'
 
 import { router } from 'expo-router'
 
-import Header from '../../components/header'
 import CircleButton from '../../components/CircleButton'
 import Icon from '../../components/Icon'
 
@@ -14,7 +13,6 @@ const handlePress = (): void => {
 const Detail = (): JSX.Element => {
   return (
     <View style={styles.container}>
-      <Header />
       <View style={styles.memoHeader}>
         <Text style={styles.memoTitle}>買い物リスト</Text>
         <Text style={styles.memoDate}>2024/02/17</Text>
@@ -22,7 +20,7 @@ const Detail = (): JSX.Element => {
       <ScrollView style={styles.memoBody}>
         <Text style={styles.memoBodyText}>Detail</Text>
       </ScrollView>
-      <CircleButton onPress={handlePress} style={{ top: 160, bottom: 'auto' }}>
+      <CircleButton onPress={handlePress} style={{ top: 60, bottom: 'auto' }}>
         {/* <Feather name="edit-2" size={24} color="#ffffff" /> */}
         <Icon name='pencil' size={40} color='#ffffff'/>
       </CircleButton>
